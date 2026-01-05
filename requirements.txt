@@ -1,0 +1,4 @@
+pandas>=2.0.0
+click>=8.0.0
+uniprotparser>=1.0.0
+numpy>=1.24.0
