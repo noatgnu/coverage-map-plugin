@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Protein Coverage Map pipeline parameters",
+    "description": "Generate protein coverage maps from peptide data with intensity values",
+    "type": "object",
+    "definitions": {
+        "plugin_parameters": {
+            "title": "Plugin parameters",
+            "description": "Parameters for the Protein Coverage Map plugin.",
+            "type": "object",
+            "properties": {
+                "fasta_file": {
+                    "type": "string",
+                    "description": "Optional FASTA file with protein sequences. If not provided, sequences will be fetched from UniProt.",
+                    "format": "file-path"
+                },
+                "index_column": {
+                    "type": "string",
+                    "description": "Column to use as peptide identifier/index"
+                },
+                "input_file": {
+                    "type": "string",
+                    "description": "Tab-separated or CSV file containing peptide data with intensity values",
+                    "format": "file-path"
+                },
+                "sequence_column": {
+                    "type": "string",
+                    "description": "Column containing peptide sequences"
+                },
+                "uniprot_acc_column": {
+                    "type": "string",
+                    "description": "Column containing UniProt accession IDs"
+                },
+                "value_columns": {
+                    "type": "string",
+                    "description": "Columns containing intensity or abundance values (comma-separated)"
+                }
+            }
+        }
+    },
+    "properties": {
+        "fasta_file": {
+            "$ref": "#/definitions/plugin_parameters/properties/fasta_file"
+        },
+        "index_column": {
+            "$ref": "#/definitions/plugin_parameters/properties/index_column"
+        },
+        "input_file": {
+            "$ref": "#/definitions/plugin_parameters/properties/input_file"
+        },
+        "sequence_column": {
+            "$ref": "#/definitions/plugin_parameters/properties/sequence_column"
+        },
+        "uniprot_acc_column": {
+            "$ref": "#/definitions/plugin_parameters/properties/uniprot_acc_column"
+        },
+        "value_columns": {
+            "$ref": "#/definitions/plugin_parameters/properties/value_columns"
+        }
+    }
+}
