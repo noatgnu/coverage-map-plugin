@@ -26,6 +26,18 @@ process COVERAGE_MAP {
     ARG_LIST=()
 
     
+    # Mapping for value_columns
+    VAL="$value_columns"
+    if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
+        ARG_LIST+=("--value-cols" "\$VAL")
+    fi
+    
+    # Mapping for fasta_file
+    VAL="$fasta_file"
+    if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
+        ARG_LIST+=("--fasta" "\$VAL")
+    fi
+    
     # Mapping for input_file
     VAL="$input_file"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
@@ -48,18 +60,6 @@ process COVERAGE_MAP {
     VAL="$uniprot_acc_column"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
         ARG_LIST+=("--uniprot-col" "\$VAL")
-    fi
-    
-    # Mapping for value_columns
-    VAL="$value_columns"
-    if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--value-cols" "\$VAL")
-    fi
-    
-    # Mapping for fasta_file
-    VAL="$fasta_file"
-    if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--fasta" "\$VAL")
     fi
     
     python /app/get_coverage.py \

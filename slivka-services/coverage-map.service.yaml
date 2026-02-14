@@ -1,0 +1,83 @@
+# Slivka service configuration for coverage-map
+# Generated from Cauldron plugin format
+#
+# For file inputs that reference large databases (e.g., FASTA databases),
+# consider configuring them as environment variables pointing to shared storage:
+#   env:
+#     DATABASE_PATH: "${SLIVKA_HOME}/databases/uniref90.fasta"
+# Then reference in args as: arg: "--db=${DATABASE_PATH}"
+
+slivka-version: "0.8"
+name: coverage-map
+description: Generate protein coverage maps from peptide data with intensity values
+author: Cauldron Team
+version: "1.0.0"
+license: MIT
+classifiers:
+  - "Topic :: Scientific/Engineering :: Bio-Informatics"
+
+parameters:
+  input_file:
+    name: "Input File"
+    description: "Tab-separated or CSV file containing peptide data with intensity values"
+    type: file
+    required: true
+  sequence_column:
+    name: "Peptide Sequence Column"
+    description: "Column containing peptide sequences"
+    type: text
+    required: true
+  index_column:
+    name: "Index Column"
+    description: "Column to use as peptide identifier/index"
+    type: text
+    required: true
+  uniprot_acc_column:
+    name: "UniProt Accession Column"
+    description: "Column containing UniProt accession IDs"
+    type: text
+    required: true
+  value_columns:
+    name: "Intensity/Value Columns"
+    description: "Columns containing intensity or abundance values (comma-separated)"
+    type: text
+    required: true
+  fasta_file:
+    name: "FASTA File (Optional)"
+    description: "Optional FASTA file with protein sequences. If not provided, sequences will be fetched from UniProt."
+    type: file
+
+command:
+  - python
+  - get_coverage.py
+
+args:
+  input_file:
+    arg: "--input=$(value)"
+    symlink: "input_file"
+  sequence_column:
+    arg: "--sequence-col=$(value)"
+  index_column:
+    arg: "--index-col=$(value)"
+  uniprot_acc_column:
+    arg: "--uniprot-col=$(value)"
+  value_columns:
+    arg: "--value-cols=$(value)"
+  fasta_file:
+    arg: "--fasta=$(value)"
+    symlink: "fasta_file"
+  _output_dir:
+    arg: "--output-dir=."
+
+outputs:
+  coverage.txt:
+    path: "coverage.txt"
+    media-type: text/tab-separated-values
+  uniprot_data.txt:
+    path: "uniprot_data.txt"
+    media-type: text/tab-separated-values
+
+execution:
+  runners:
+    default:
+      type: SlivkaQueueRunner
