@@ -3,7 +3,7 @@ plugin:
   name: Protein Coverage Map
   version: 1.0.0
   description: Generate protein coverage maps from peptide data with intensity values
-  author: Cauldron Team
+  author: "CauldronGO Team"
   category: utilities
   icon: map
   repository: https://github.com/noatgnu/coverage-map-plugin
@@ -26,31 +26,32 @@ inputs:
 
   - name: sequence_column
     label: Peptide Sequence Column
-    type: column
+    type: column-selector
     required: true
     description: Column containing peptide sequences
-    source: input_file
+    sourceFile: input_file
 
   - name: index_column
     label: Index Column
-    type: column
+    type: column-selector
     required: true
     description: Column to use as peptide identifier/index
-    source: input_file
+    sourceFile: input_file
 
   - name: uniprot_acc_column
     label: UniProt Accession Column
-    type: column
+    type: column-selector
     required: true
     description: Column containing UniProt accession IDs
-    source: input_file
+    sourceFile: input_file
 
   - name: value_columns
     label: Intensity/Value Columns
-    type: multi-column
+    type: column-selector
+    multiple: true
     required: true
-    description: Columns containing intensity or abundance values (comma-separated)
-    source: input_file
+    description: Columns containing intensity or abundance values
+    sourceFile: input_file
 
   - name: fasta_file
     label: FASTA File (Optional)
