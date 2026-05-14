@@ -29,42 +29,42 @@ process COVERAGE_MAP {
     # Mapping for input_file
     VAL="$input_file"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--input" "\$VAL")
+        ARG_LIST+=("--input_file" "\$VAL")
     fi
     
     # Mapping for sequence_column
     VAL="$sequence_column"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--sequence-col" "\$VAL")
+        ARG_LIST+=("--sequence_column" "\$VAL")
     fi
     
     # Mapping for index_column
     VAL="$index_column"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--index-col" "\$VAL")
+        ARG_LIST+=("--index_column" "\$VAL")
     fi
     
     # Mapping for uniprot_acc_column
     VAL="$uniprot_acc_column"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--uniprot-col" "\$VAL")
+        ARG_LIST+=("--uniprot_acc_column" "\$VAL")
     fi
     
     # Mapping for value_columns
     VAL="$value_columns"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--value-cols" "\$VAL")
+        ARG_LIST+=("--value_columns" "\$VAL")
     fi
     
     # Mapping for fasta_file
     VAL="$fasta_file"
     if [ -n "\$VAL" ] && [ "\$VAL" != "null" ] && [ "\$VAL" != "[]" ]; then
-        ARG_LIST+=("--fasta" "\$VAL")
+        ARG_LIST+=("--fasta_file" "\$VAL")
     fi
     
     python /app/get_coverage.py \
         "\${ARG_LIST[@]}" \
-        --output-dir . \
+        --output_folder . \
         \${args:-}
 
     cat <<-END_VERSIONS > versions.yml

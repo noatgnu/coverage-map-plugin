@@ -33,7 +33,7 @@
                 },
                 "value_columns": {
                     "type": "string",
-                    "description": "Columns containing intensity or abundance values (comma-separated)"
+                    "description": "Columns containing intensity or abundance values"
                 }
             }
         }

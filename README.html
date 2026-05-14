@@ -124,7 +124,7 @@
 <p><strong>ID</strong>: <code>coverage-map</code><br>
 <strong>Version</strong>: 1.0.0<br>
 <strong>Category</strong>: utilities<br>
-<strong>Author</strong>: Cauldron Team</p>
+<strong>Author</strong>: CauldronGO Team</p>
 <h2 id="description">Description</h2>
 <p>Generate protein coverage maps from peptide data with intensity values</p>
 <h2 id="runtime">Runtime</h2>
@@ -160,7 +160,7 @@
 <tr>
 <td><code>sequence_column</code></td>
 <td>Peptide Sequence Column</td>
-<td>column</td>
+<td>column-selector (single)</td>
 <td>Yes</td>
 <td>-</td>
 <td>Always visible</td>
@@ -168,7 +168,7 @@
 <tr>
 <td><code>index_column</code></td>
 <td>Index Column</td>
-<td>column</td>
+<td>column-selector (single)</td>
 <td>Yes</td>
 <td>-</td>
 <td>Always visible</td>
@@ -176,7 +176,7 @@
 <tr>
 <td><code>uniprot_acc_column</code></td>
 <td>UniProt Accession Column</td>
-<td>column</td>
+<td>column-selector (single)</td>
 <td>Yes</td>
 <td>-</td>
 <td>Always visible</td>
@@ -184,7 +184,7 @@
 <tr>
 <td><code>value_columns</code></td>
 <td>Intensity/Value Columns</td>
-<td>multi-column</td>
+<td>column-selector (multiple)</td>
 <td>Yes</td>
 <td>-</td>
 <td>Always visible</td>
@@ -204,12 +204,24 @@
 <p>Tab-separated or CSV file containing peptide data with intensity values</p>
 <h4 id="peptide-sequence-column-sequence-column">Peptide Sequence Column (<code>sequence_column</code>)</h4>
 <p>Column containing peptide sequences</p>
+<ul>
+<li><strong>Column Source</strong>: <code>input_file</code></li>
+</ul>
 <h4 id="index-column-index-column">Index Column (<code>index_column</code>)</h4>
 <p>Column to use as peptide identifier/index</p>
+<ul>
+<li><strong>Column Source</strong>: <code>input_file</code></li>
+</ul>
 <h4 id="uniprot-accession-column-uniprot-acc-column">UniProt Accession Column (<code>uniprot_acc_column</code>)</h4>
 <p>Column containing UniProt accession IDs</p>
+<ul>
+<li><strong>Column Source</strong>: <code>input_file</code></li>
+</ul>
 <h4 id="intensityvalue-columns-value-columns">Intensity/Value Columns (<code>value_columns</code>)</h4>
-<p>Columns containing intensity or abundance values (comma-separated)</p>
+<p>Columns containing intensity or abundance values</p>
+<ul>
+<li><strong>Column Source</strong>: <code>input_file</code></li>
+</ul>
 <h4 id="fasta-file-optional-fasta-file">FASTA File (Optional) (<code>fasta_file</code>)</h4>
 <p>Optional FASTA file with protein sequences. If not provided, sequences will be fetched from UniProt.</p>
 <h2 id="outputs">Outputs</h2>

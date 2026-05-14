@@ -17,7 +17,7 @@
 **ID**: `coverage-map`  
 **Version**: 1.0.0  
 **Category**: utilities  
-**Author**: Cauldron Team
+**Author**: CauldronGO Team
 
 ## Description
 
@@ -34,10 +34,10 @@ Generate protein coverage maps from peptide data with intensity values
 | Name | Label | Type | Required | Default | Visibility |
 |------|-------|------|----------|---------|------------|
 | `input_file` | Input File | file | Yes | - | Always visible |
-| `sequence_column` | Peptide Sequence Column | column | Yes | - | Always visible |
-| `index_column` | Index Column | column | Yes | - | Always visible |
-| `uniprot_acc_column` | UniProt Accession Column | column | Yes | - | Always visible |
-| `value_columns` | Intensity/Value Columns | multi-column | Yes | - | Always visible |
+| `sequence_column` | Peptide Sequence Column | column-selector (single) | Yes | - | Always visible |
+| `index_column` | Index Column | column-selector (single) | Yes | - | Always visible |
+| `uniprot_acc_column` | UniProt Accession Column | column-selector (single) | Yes | - | Always visible |
+| `value_columns` | Intensity/Value Columns | column-selector (multiple) | Yes | - | Always visible |
 | `fasta_file` | FASTA File (Optional) | file | No | - | Always visible |
 
 ### Input Details
@@ -51,21 +51,25 @@ Tab-separated or CSV file containing peptide data with intensity values
 
 Column containing peptide sequences
 
+- **Column Source**: `input_file`
 
 #### Index Column (`index_column`)
 
 Column to use as peptide identifier/index
 
+- **Column Source**: `input_file`
 
 #### UniProt Accession Column (`uniprot_acc_column`)
 
 Column containing UniProt accession IDs
 
+- **Column Source**: `input_file`
 
 #### Intensity/Value Columns (`value_columns`)
 
-Columns containing intensity or abundance values (comma-separated)
+Columns containing intensity or abundance values
 
+- **Column Source**: `input_file`
 
 #### FASTA File (Optional) (`fasta_file`)
 
