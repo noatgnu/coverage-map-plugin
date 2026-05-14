@@ -64,13 +64,13 @@ inputs:
 
 execution:
   argsMapping:
-    input_file: "--input"
-    sequence_column: "--sequence-col"
-    index_column: "--index-col"
-    uniprot_acc_column: "--uniprot-col"
-    value_columns: "--value-cols"
-    fasta_file: "--fasta"
-  outputDir: "--output-dir"
+    input_file: "--input_file"
+    sequence_column: "--sequence_column"
+    index_column: "--index_column"
+    uniprot_acc_column: "--uniprot_acc_column"
+    value_columns: "--value_columns"
+    fasta_file: "--fasta_file"
+  outputDir: "--output_folder"
   requirements:
     python: ">=3.10"
     pythonRequirementsFile: requirements.txt
